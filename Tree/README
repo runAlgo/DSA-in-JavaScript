@@ -1,0 +1,17 @@
+## 1. DS Tree
+
+#### A DS tree is a fundamental hierarchical data structure. It represents a collection of elements(data) called nodes, connected by edges(links) forming a tree-like structure.
+
+### 2. Full Tree
+
+### Each node either has no children(leaf node) or exactly two children
+
+### 3. Perfect Tree(Full + Balance)
+
+### Balance: All the leaf nodes are at the same depth(distance from the root). This means the tree is completely filled with no gaps at any level
+
+### 4. Complete Tree
+
+### Almost Full Levels: All levels except possibly the last one are completely filled with nodes
+
+### Left Leaning Last Level: The last level is filled with nodes from the left side as much as possible. There might be empty spaces on the right

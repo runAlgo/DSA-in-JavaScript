@@ -94,23 +94,23 @@ class LinkedList {
     return temp;
   }
   get(index) {
-    let count = 0;
+    if (index < 0 || index >= this.length) return null;
+
     let temp = this.head;
-    
-    while(temp) {
-      if(count === index) {
-        return temp;
-      }
-      count++;
+    let count = 0;
+
+    while (count !== index) {
       temp = temp.next;
+      count++;
     }
-    return null;
+    return temp;
   }
 
+  // Set method change the linked list value from given index of Linked list. 
   set(index, ele) {
     let temp = this.get(index);
 
-    if(temp) {
+    if (temp) {
       temp.value = ele;
       return true;
     }
@@ -123,7 +123,7 @@ class LinkedList {
   //     return new Node(ele);
   //   }else {
   //     return this.head;
-  //   } 
+  //   }
   //  }
   //  if(index === 1) {
   //   let newNode = new Node(ele);
@@ -148,11 +148,11 @@ class LinkedList {
   // }
 
   insertAtIndexN(index, value) {
-    if(index === 0) {
+    if (index === 0) {
       return this.unshift(value);
     }
 
-    if(index === this.length) {
+    if (index === this.length) {
       return this.push(value);
     }
 
@@ -170,7 +170,7 @@ class LinkedList {
   size() {
     let count = 0;
     let temp = this.head;
-    while(temp) {
+    while (temp) {
       count++;
       temp = temp.next;
     }
@@ -197,7 +197,7 @@ myLinkedList.push(3);
 // console.log(myLinkedList.get(2));
 console.log(myLinkedList.set(0, "don"));
 console.log(myLinkedList.insertAtIndexN(1, 8));
-console.log(myLinkedList)
-console.log(myLinkedList.size())
+console.log(myLinkedList);
+console.log(myLinkedList.size());
 myLinkedList.clear();
-console.log(myLinkedList)
+console.log(myLinkedList);

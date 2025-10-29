@@ -1,0 +1,7 @@
+Training for Programming languages like JavaScript, C++, Python, Backend(API, NodeJs, SQL, NOSQL), frontend(HTML, CSS, React)
+
+1. Search all Materials for above training Data
+2. Compress all large data into small files
+3. Trail Local LLM
+4. Setup 200GB SSD and 4GB RAM for Running LLM into Local Machine
+5. Make Application for eassy access to our LLM

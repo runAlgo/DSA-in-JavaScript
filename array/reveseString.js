@@ -89,8 +89,10 @@
 //         maxProfit = Math.max(maxProfit, weeklyPrices[i] - minPrice)
 //     }
 // return maxProfit;
+
 // }
 // console.log(buyingStock([7, 1, 5, 3, 6, 4]))
+
 
 
 
@@ -98,14 +100,43 @@
 // Array Chunks:-
 
 
-const chunk = (array, size) => {
-    let index  = 0;
-    const chunked = [];
-    while(index < array.length) {
-        const chunk = array.slice(index, index + size);
-        chunked.push(chunk);
-        index += size;
-    }
-    return chunked;
-}
-console.log(chunk([1, 2, 4, 5, 6, 7, 8, 9], 3))
+// const chunk = (array, size) => {
+//     let index  = 0;
+//     const chunked = [];
+//     while(index < array.length) {
+//         const chunk = array.slice(index, index + size);
+//         chunked.push(chunk);
+//         index += size;
+//     }
+//     return chunked;
+// }
+// console.log(chunk([1, 2, 4, 5, 6, 7, 8, 9], 3))
+
+
+
+// FizzBuzz
+// 1. Print numbers from 1 to n
+// 2. If number is divisible by 3, print "Fizz"
+// 3. If number is divisible by 5, print "Buzz"
+// 4. If number is divisible by 3 and 5, print "FizzBuzz"
+// Else, print the number
+
+
+// let n = 9;
+// for(let i = 1; i <= n; i++) {
+//     if(i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz")
+//     else if(i % 3 === 0) console.log("Fizz")
+//     else if(i % 5 === 0) console.log("Buzz")
+//     else console.log(i);
+// }
+
+
+// const FizzBuzz = number => {
+//     for(let i = 1; i <= number; i++){
+//         if(i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz");
+//         else if(i % 5 === 0) console.log("Buzz");
+//         else if(i % 3 === 0) console.log("Fizz");
+//         else console.log(i);
+//     }
+// }
+// FizzBuzz(15);
