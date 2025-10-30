@@ -1,27 +1,28 @@
 class Node {
-  constructor(value) {
-    this.head = value;
+  constructor(head) {
+    this.head = head;
     this.next = null;
   }
 }
 
 class LinkedList {
-  constructor(value) {
-    this.head = new Node(value);
+  constructor(head) {
+    this.head = new Node(head);
     this.tail = this.head;
     this.length = 1;
   }
 
-  push(value) {
-    const newNode = new Node(value);
+  push(head) {
+    const newNode = new Node(head);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
-
-    this.tail.next = newNode;
-    this.tail = newNode;
     this.length++;
+    return true;
   }
 
   pop() {
@@ -47,8 +48,8 @@ class LinkedList {
   }
 
   // Add a new node/element at the head
-  unshift(value) {
-    const newNode = new Node(value);
+  unshift(head) {
+    const newNode = new Node(head);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -60,18 +61,17 @@ class LinkedList {
     return this;
   }
 
-
-//   Remove first Node/Element from the linkedList
+  //   Remove first Node/Element from the linkedList
   shift() {
-    if(!this.head) return undefined;
+    if (!this.head) return undefined;
     const temp = this.head;
     this.head = this.head.next;
 
     temp.next = null;
     this.length--;
 
-    if(this.length == 0) {
-        this.tail = null;
+    if (this.length == 0) {
+      this.tail = null;
     }
     return temp;
   }
@@ -80,30 +80,59 @@ class LinkedList {
     let temp = this.head;
     let count = 0;
 
-
-    while(temp) {
-        if(count == index) return temp;
-        count++;
-        temp = temp.next;
+    while (temp) {
+      if (count === index) return temp;
+      count++;
+      temp = temp.next;
     }
     return null;
   }
 
-  set(index, value) {
-   // If index is invalid, return false
-   if(index < 0 || index >= this.length) return false;
+  // Finds the node at the given index
+  // Changes that node's stored head to the new head
+  // Returns true if successful
 
-   // Get the node at the given index;
-   let temp = this.get(index);
+  set(index, head) {
+    // If index is invalid, return false
+    if (index < 0 || index >= this.length) return false;
 
-   // if node exists, update its value
-   if(temp) {
-    temp.head = value;
+    // Get the node at the given index;
+    let temp = this.get(index);
+
+    // if node exists, update its head
+    if (temp) {
+      temp.head = head;
+      return true;
+    }
+
+    // If node doesn't exist
+    return false;
+  }
+
+  // It add the new node on the given index to the linked-list
+  insertAtIndex(index, head) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return this.unshift(head);
+    if (index === this.length) return this.push(head);
+
+    const newNode = new Node(head);
+    let temp = this.get(index - 1);
+
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+
     return true;
-   }
-
-   // If node doesn't exist
-   return false;
+  }
+  size() {
+    if(!this.head) return 0;
+    let count = 0;
+    let temp = this.head;
+    while(temp) {
+      count++;
+      temp = temp.next;
+    }
+    return count;
   }
 }
 
@@ -114,11 +143,11 @@ MyLinkendList.push(9);
 
 // MyLinkendList.pop();
 // MyLinkendList.push(6);
-// console.log("This is Popped value: ", MyLinkendList.pop());
+// console.log("This is Popped head: ", MyLinkendList.pop());
 // const res = MyLinkendList.unshift(8);
-// const res = MyLinkendList.get(3)
-const res = MyLinkendList.set(0, 8)
+// const res = MyLinkendList.get(2)
+// const res = MyLinkendList.set(0, 8)
+// const res = MyLinkendList.insertAtIndex(2, 7);
+const res = MyLinkendList.size();
 console.log(res);
-console.log(MyLinkendList)
-
-
+console.log(MyLinkendList);
