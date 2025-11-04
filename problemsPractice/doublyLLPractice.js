@@ -72,11 +72,28 @@ class LinkedList {
         this.length--;
         return temp; // Return romoved node
     }
+    get(index) {
+        if(index < 0 || index > this.length) return undefined;
+
+        let count = 0;
+        let temp = this.head;
+
+       while(temp) {
+        if(count === index) return temp;
+        count++;
+        temp = temp.next;
+       }
+
+       return undefined; // index out of range
+    }
 }
 
 const MyLinkedList = new LinkedList(3);
 MyLinkedList.push(5)
+MyLinkedList.push(20)
+MyLinkedList.push(10)
 // MyLinkedList.pop();
 MyLinkedList.unshift(4);
 MyLinkedList.shift();
-console.log(MyLinkedList)
+const res = MyLinkedList.get(1);
+console.log(res)
