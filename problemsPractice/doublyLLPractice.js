@@ -116,14 +116,13 @@ class LinkedList {
   }
 }
 
-const MyLinkedList = new LinkedList(3);
+const MyLinkedList = new LinkedList(3); // 4,3, 5, 99, 20, 10
 MyLinkedList.push(5);
 MyLinkedList.push(20);
 MyLinkedList.push(10);
 MyLinkedList.unshift(4);
 
 MyLinkedList.insertNewNodeAtNIndex(2, 99); // ✅ correct call
-
 console.log("List Values:");
 let temp = MyLinkedList.head;
 while (temp) {
